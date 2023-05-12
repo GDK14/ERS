@@ -12,6 +12,24 @@
 <!-- handlebars -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
 
+<script>
+  function updateDateTime() {
+    var now = new Date();
+    var year = now.getFullYear();
+    var month = (now.getMonth() + 1).toString().padStart(2, '0');
+    var day = now.getDate().toString().padStart(2, '0');
+    var hours = now.getHours().toString().padStart(2, '0');
+    var minutes = now.getMinutes().toString().padStart(2, '0');
+    var seconds = now.getSeconds().toString().padStart(2, '0');
+    
+    var dateTimeString = year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
+    document.getElementById("currentDateTime").innerText = dateTimeString;
+  }
+  
+  updateDateTime();
+  
+  setInterval(updateDateTime, 1000);
+</script>
 
 <script>
    function goPage(url) {
@@ -36,7 +54,10 @@
    window.onload=function(){
       goPage('<%=request.getContextPath()%>${url}');
    }
-   </script>
+  
+</script>
+
+
 
 
 </body>
