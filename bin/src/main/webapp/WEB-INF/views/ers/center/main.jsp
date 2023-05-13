@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/include/header.jspf"%>
+<%@ include file="/WEB-INF/views/include/iframeHeader.jspf"%>
 <div class="row m-0 h-100">
 	<div class="col-12">
 		<div class="row m-0 h-30">
@@ -151,4 +151,4 @@
 
 </div>
 
-<%@ include file="/WEB-INF/views/include/footer.jspf"%>
+<%@ include file="/WEB-INF/views/include/iframeFooter.jspf"%>
