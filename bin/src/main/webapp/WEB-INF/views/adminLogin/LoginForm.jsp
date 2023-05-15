@@ -25,6 +25,7 @@
         <div class="card-body bg-sky-700 h-16 items-center">
 	    	<h2 class="item-center justify-center card-title text-white">직원로그인</h2>
 	  	</div>
+	  	
       <div class="card-body">
        
 	  	
@@ -41,14 +42,12 @@
             </span>
 		  </label>
           <input type="text" placeholder="password" class="input input-bordered" />
-          <label class="label">
-            <a href="#" class="label-text-alt link link-info link-hover">회원가입</a>
-            <a href="#" class="label-text-alt link link-info link-hover">아이디찾기</a>
-            <a href="#" class="label-text-alt link link-info link-hover">비밀번호찾기</a>
-          </label>
+            <a href="#" class="mt-2 label-text-alt link link-info link-hover">회원가입</a>
+            <a href="#" class="mt-1 label-text-alt link link-info link-hover">아이디찾기</a>
+            <a href="#" class="mt-1 label-text-alt link link-info link-hover">비밀번호찾기</a>
         </div>
         
-        <div class="form-control mt-6">
+        <div class="form-control mt-1">
           <button class="btn bg-amber-500">로그인</button>
         </div>
         

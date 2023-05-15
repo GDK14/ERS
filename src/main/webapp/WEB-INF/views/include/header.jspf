@@ -16,7 +16,7 @@
 
 <title>응급안전안심서비스</title>
 </head>
-<body class="hold-transition sidebar-mini sidebar-collapse" style="overflow: hidden;">
+<body class="hold-transition sidebar-mini sidebar-collapse" style="overflow: hidden; ">
 <div class="wrapper">
 
   <!-- Navbar -->

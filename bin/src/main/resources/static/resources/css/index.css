@@ -1,8 +1,78 @@
 @charset "UTF-8";
 
-.h-30{
-	height:30%;
+.h-30 {
+	height: 30%;
 }
-.h-40{
-	height:40%;
+
+.h-40 {
+	height: 40%;
+}
+
+.bell_color {
+	font-size: 1.5rem;
+	background: linear-gradient(rgba(255, 0, 0, 1) 0%, rgba(208, 228, 60, 1)
+		100%);
+	color: transparent;
+	-webkit-background-clip: text;
+}
+
+.dashboard_icon {
+	font-size: 1.5rem;
+}
+
+.color-inherit {
+	color: inherit;
+}
+
+.dashboard_gray_content_box {
+	border: 0.2px solid #535353b3;
+	background-color: rgb(237 237 237/ 84%);
+}
+
+.dashboard_gray_content_box_header {
+	font-size: 0.7rem;
+	text-align: center;
+	font-weight: bold;
+	padding: 5px 0 5px 0;
+}
+
+.dashboard_gray_content_box_body {
+	text-align: center;
+    font-size: 2.5rem;
+    color: #547fdb;
+    padding: 0 5rem;
+    font-weight: 700;
+}
+
+.text-blue {
+	color: blue;
+}
+
+.text-red {
+	color: red;
+}
+.text-green{
+	color:green
+}
+
+.total_emanager_count {
+	font-size: 1.5rem;
+	font-weight: bold;
+	padding-left: 0.5rem;
+}
+.dashboard_emanager_count{
+	font-size:2rem;
+	padding:0 40px 0 40px;
+}
+.h-96{
+	height:96%;
+}
+
+.center-header-font{
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.bg-skyblue{
+	background-color: #cce4ed;
 }

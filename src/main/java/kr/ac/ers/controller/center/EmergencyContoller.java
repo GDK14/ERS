@@ -17,4 +17,9 @@ public class EmergencyContoller {
 	public String List() {
 		return  "ers/center/emergency/list";
 	}
+	
+	@GetMapping("/detail")
+	public String Detail() {
+		return  "ers/center/emergency/detail";
+	}
 }

@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 </div>
-
+</div>
+</div>
 
 
 <!-- jquery -->
@@ -29,32 +30,6 @@
   updateDateTime();
   
   setInterval(updateDateTime, 1000);
-</script>
-
-<script>
-   function goPage(url) {
-      //alert(url);
-      $('iframe[name="ifr"]').attr("src",url);
-      
-      // HTML5 지원 브라우저에서 사용가능
-      if (typeof(history.pushState) == 'function') {
-         //현재 주소 가져오기
-         var renewURL = location.href;
-         var pos = renewURL.indexOf('?url=');
-         renewURL = renewURL.substr(0,pos);
-         if(url != '/ers/center') {
-            renewURL += "?url=" + url;
-         }
-         //페이지를 리로드 하지않고 페이지 주소만 변경할 때 사용
-         history.pushState(url, "", renewURL);
-      }else {
-         location.hash = "#";
-      }
-   }
-   window.onload=function(){
-      goPage('<%=request.getContextPath()%>${url}');
-   }
-  
 </script>
 
 

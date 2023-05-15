@@ -1,12 +1,113 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jspf"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.6/dist/full.css" rel="stylesheet" type="text/css" />
 <script src="https://cdn.tailwindcss.com"></script>
-<style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+
+<style>
+    /* CSS 스타일 지정 */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin-top: 5%;
+    	margin-left: 34%;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 900px;;
+        height: 845px;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    
+    
+    element.style {
+    background-size: 5px 5px;
+}
+    .relative {
+    position: relative;
+}
+.btm-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: env(safe-area-inset-bottom);
+    height: 4rem;
+    --tw-bg-opacity: 1;
+    background-color: hsl(var(--b1)/var(--tw-bg-opacity));
+    color: currentColor;
+}
+.btm-nav>*:not(.active) {
+    padding-top: 0.125rem;
+}
+.btm-nav>* {
+    position: relative;
+    display: flex;
+    height: 100%;
+    flex-basis: 100%;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    border-color: currentColor;
+}
+.btm-nav>*:not(.active) {
+    padding-top: 0.125rem;
+}
+.btm-nav>* {
+    position: relative;
+    display: flex;
+    height: 100%;
+    flex-basis: 100%;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    border-color: currentColor;
+}
+
+
+    .btm-nav>*:where(.active) {
+    border-top-width: 2px;
+    --tw-bg-opacity: 1;
+    background-color: hsl(var(--b1)/var(--tw-bg-opacity));
+}
 </style>
+
+
+
 <div class="pt-2 pb-2 pr-5 pl-5">
 
 	<div class="flex ...">
@@ -34,8 +135,33 @@
 		   <input type='date' id='StartDate' class="border-2 border-black mb-2 pl-2" style="width: 130px;"/>&ensp;&ensp;
            <input  type="date" id="EedDate" name="SearchEnd" class="border-2 border-black mb-2 pl-2" style="width: 130px;"/>
 		</form>
+		<!-- SELECT -->
+<label>사건분류</label> 
+<select class="border-2 border-black">
+    <option>전체</option>
+    <option>응급발생</option>
+    <option>119</option>
+    <option>화재</option>
+</select>&ensp;&ensp;
+<!-- SELECT -->
+<label>지역구 선택</label> 
+<select class="border-2 border-black">
+    <option>전체</option>
+    <option>동구</option>
+    <option>중구</option>
+    <option>서구</option>
+    <option>유성구</option>
+    <option>대덕구</option>
+</select>&ensp;&ensp;
+<label>처리상태</label> 
+<select class="border-2 border-black">
+    <option>전체</option>
+    <option>처리</option>
+    <option>미처리</option>
+</select>
 	</div>
 </div>
+
 
 
 <div class="overflow-x-auto">
@@ -64,16 +190,16 @@
       </tr>
     </thead> 
     <tbody class="text-center" style="font-size: 9px;">
-      <tr >
-        <th>1</th> 
-        <td>독거노인</td> 
-        <td>김형민</td>
-        <td>서구관제센터</td> 
-        <td>둔산1동 수행처</td> 
-        <td>119</td> 
-        <td>2023-04-06 11:11</td> 
-        <td>처리</td>
-      </tr>
+     <tr>
+	    <th>1</th> 
+	    <td>독거노인</td> 
+	    <td><a onclick="openModal('김형민');">김형민</a></td>
+	    <td>서구관제센터</td> 
+	    <td>둔산1동 수행처</td> 
+	    <td>119</td> 
+	    <td>2023-04-06 11:11</td> 
+	    <td>처리</td>
+	  </tr>
       <tr >
         <th>2</th> 
         <td>독거노인</td> 
@@ -222,12 +348,63 @@
 		</li>
 	</ul>
 </nav>    
+<br/><br/>
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal 창 -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p id="modalContent"></p>
+    </div>
+</div>
+
+<!--캘린더 현재 날짜-->
 <script>
   document.getElementById('StartDate').value = new Date().toISOString().substring(0, 10);;
 </script>
+
+<script>
+$(document).ready(function() {
+  window.openModal = function(name) {
+    // 모달 창을 열 때 실행되는 함수
+    // name 매개변수를 사용하여 모달 내용을 동적으로 생성
+    $('#modalContent').html('<h2>' + name + '님에 대한 상세 정보</h2>');
+    // 모달 창 보이기
+    $('#myModal').css('display', 'block');
+  }
+
+  window.closeModal = function() {
+    // 모달 창을 닫을 때 실행되는 함수
+    // 모달 숨기기
+    $('#myModal').css('display', 'none');
+  }
+
+  // 모달 닫기 버튼 클릭 이벤트 처리
+  $('.close').click(function() {
+    closeModal();
+  });
+});
+</script>
+
+
+
+
 <%@ include file="/WEB-INF/views/include/footer.jspf"%>
