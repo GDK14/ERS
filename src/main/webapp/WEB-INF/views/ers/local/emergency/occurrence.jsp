@@ -23,15 +23,15 @@
         </div>
     </div>
     <div class="flex ...">
-        <ul class="nav nav-tabs" id="custom-content-above-tab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active-primary" id="emergency" data-toggle="pill" href="#emergency" role="tab" aria-controls="custom-content-above-home" aria-selected="true">응급발생</a>
+        <ul class="nav nav-tabs border-stone-300 border-2" id="custom-content-above-tab" role="tablist" style="border-bottom: none;">
+            <li class="nav-item" id="tab1">
+                <a class="nav-link border-0 text-red-500 font-bold" id="emergency" data-toggle="pill" href="${pageContext.request.contextPath}?category=emergency" role="tab" aria-controls="custom-content-above-home" aria-selected="true">응급발생</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" id="user" data-toggle="pill" href="#user" role="tab" aria-controls="custom-content-above-profile" aria-selected="false">대상자활동</a>
+            <li class="nav-item" id="tab2">
+                <a class="nav-link border-0 text-blue-500 font-bold	" id="user" data-toggle="pill" href="${pageContext.request.contextPath}?category=user" role="tab" aria-controls="custom-content-above-profile" aria-selected="false">대상자활동</a>
             </li>
         </ul>
-        <div class="grow ... pb-2" style=" display: flex;flex-direction: column-reverse;">
+        <div class="grow ... pb-2 pl-3" style=" display: flex;flex-direction: column-reverse;">
             <p class="m-0">
                 [응급발생 &nbsp;:&nbsp; <em class="text-red">${pageMaker.totalCount }5</em>건]
             </p>
@@ -42,7 +42,7 @@
     </div>
 
 
-<div class="tab1">
+<div class="tab1" style="display:none;">
     <table class="table table-hover text-nowrap border-2">
         <colgroup>
             <col width="50" />
@@ -107,7 +107,7 @@
         </tbody>
     </table>
 </div>
-<div class="tab2">
+<div class="tab2" style="display:none;">
     <table class="table table-hover text-nowrap border-2">
         <colgroup>
             <col width="50" />
@@ -182,25 +182,55 @@
 
 <script>
     $(document).ready(function() {
+    
+        // 파라미터 가져오기
+        $.urlParam = function(name) {
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            if (results==null) {
+                return null;
+            } else {
+                return results[1] || 0;
+            }
+        }
+    	
+        
+        var category = $.urlParam('category')
+        // 로드시 카테고리 처리
+        if (category === 'user') {
+            $('.tab1').hide(); // Hide Tab 1 content
+            $('.tab2').show(); // Show Tab 2 content
+            $('#tab2').addClass('bg-gray');
+        } else {
+        	$('.tab1').show(); // Show Tab 1 content
+            $('.tab2').hide(); // Hide Tab 2 content
+            $('#tab1').addClass('bg-gray');
+        }
+        
+        
         // thead 체크박스 클릭 시
         $("thead th input[type='checkbox']").click(function() {
             var isChecked = $(this).prop("checked");
             $("tbody tr th input[type='checkbox']").prop("checked", isChecked);
         });
-    });
-</script>
-<script>
-    // Add event listeners to the navigation tabs
-    $('#emergency').on('click', function() {
-        $('.tab1').show(); // Show Tab 1 content
-        $('.tab2').hide(); // Hide Tab 2 content
-    });
+        
+       
 
-    $('#user').on('click', function() {
-        $('.tab1').hide(); // Hide Tab 1 content
-        $('.tab2').show(); // Show Tab 2 content
+        
+        // Add event listeners to the navigation tabs
+/*         $('#emergency').on('click', function() {
+            $('.tab1').show(); // Show Tab 1 content
+            $('.tab2').hide(); // Hide Tab 2 content
+        });
+
+        $('#user').on('click', function() {
+            $('.tab1').hide(); // Hide Tab 1 content
+            $('.tab2').show(); // Show Tab 2 content
+        });
+        
+         */
+
+        
     });
-    window.onload
 </script>
 
 <%@ include file="/WEB-INF/views/include/footer.jspf"%>

@@ -25,14 +25,13 @@
         align-items: center;
         justify-content: space-around;
         padding-bottom: env(safe-area-inset-bottom);
-        height: 4rem;
         --tw-bg-opacity: 1;
         background-color: hsl(var(--b1)/var(--tw-bg-opacity));
         color: currentColor;
     }
 
     .btm-nav>*:not(.active) {
-        padding-top: 0.125rem;
+        padding-top: 1rem;
     }
 
     .btm-nav>* {
@@ -45,29 +44,11 @@
         align-items: center;
         justify-content: center;
         gap: 0.25rem;
-        border-color: currentColor;
     }
 
-    .btm-nav>*:not(.active) {
-        padding-top: 0.125rem;
-    }
-
-    .btm-nav>* {
-        position: relative;
-        display: flex;
-        height: 100%;
-        flex-basis: 100%;
-        cursor: pointer;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0.25rem;
-        border-color: currentColor;
-    }
 
 
     .btm-nav>*:where(.active) {
-        border-top-width: 2px;
         --tw-bg-opacity: 1;
         background-color: hsl(var(--b1)/var(--tw-bg-opacity));
     }
@@ -228,20 +209,6 @@
 
 
 
-    <div class="btm-nav">
-        <a href="chart" class="nav-link active">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
-        </a>
-
-        <a href="list" class="nav-link">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
-            </svg>
-        </a>
-    </div>
-
     <!-- SELECT -->
     <label>지역구 선택</label>
     <select class="border-2 border-black">
@@ -256,84 +223,101 @@
     <div class="chart-container" style="position: relative;">
         <canvas id="chart" style="height: 68vh;  width: 89vw;"></canvas>
     </div>
-    <!-- 그래프 -->
-    <script type="text/javascript">
-        var barChartData = {
-            labels: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-            datasets: [{
-                label: '화재발생',
-                backgroundColor: "#FF3B30",
-                data: [
-                    22,
-                    48,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100
 
-                ]
 
-            }, {
-                label: '응급호출',
-                backgroundColor: "#4CD964",
-                data: [
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100
-                ]
-            }, {
-                label: '119',
-                backgroundColor: "#FFC041",
-                data: [
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100
-                ]
-            }]
-        };
 
-        window.onload = function() {
-            var ctx = $('#chart').get(0).getContext("2d");
-            window.theChart = new Chart(ctx, {
-                type: 'bar',
-                data: barChartData,
-                options: {}
-            });
-        }
-
-        function beforePrintHandler() {
-            for (var id in Chart.instances) {
-                Chart.instances[id].resize();
-            }
-        }
-    </script>
 
 </div>
-<script>
 
+<div class="btm-nav bg-gray" style="height: 5%;">
+    <a href="chart" class="nav-link active" style="background-color: #17a2b8;">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+    </a>
+
+    <a href="list" class="nav-link">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
+        </svg>
+    </a>
+</div>
+
+
+<!-- 그래프 -->
+<script type="text/javascript">
+    var barChartData = {
+        labels: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+        datasets: [{
+            label: '화재발생',
+            backgroundColor: "#FF3B30",
+            data: [
+                22,
+                48,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100
+
+            ]
+
+        }, {
+            label: '응급호출',
+            backgroundColor: "#4CD964",
+            data: [
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100
+            ]
+        }, {
+            label: '119',
+            backgroundColor: "#FFC041",
+            data: [
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100
+            ]
+        }]
+    };
+
+    window.onload = function() {
+        var ctx = $('#chart').get(0).getContext("2d");
+        window.theChart = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {}
+        });
+    }
+
+    function beforePrintHandler() {
+        for (var id in Chart.instances) {
+            Chart.instances[id].resize();
+        }
+    }
 </script>
+
 <%@ include file="/WEB-INF/views/include/footer.jspf"%>

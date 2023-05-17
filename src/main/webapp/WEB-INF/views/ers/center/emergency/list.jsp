@@ -6,43 +6,7 @@
 
 
 <style>
-    /*Modal*/
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.4);
-    }
-
-    .modal-content {
-        background-color: #fefefe;
-        margin-top: 5%;
-        margin-left: 34%;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 900px;
-        ;
-        height: 845px;
-    }
-
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
+   
 
     /* bottom-nav */
     .relative {
@@ -60,14 +24,13 @@
         align-items: center;
         justify-content: space-around;
         padding-bottom: env(safe-area-inset-bottom);
-        height: 4rem;
         --tw-bg-opacity: 1;
         background-color: hsl(var(--b1)/var(--tw-bg-opacity));
         color: currentColor;
     }
 
     .btm-nav>*:not(.active) {
-        padding-top: 0.125rem;
+        padding-top: 1rem;
     }
 
     .btm-nav>* {
@@ -80,41 +43,22 @@
         align-items: center;
         justify-content: center;
         gap: 0.25rem;
-        border-color: currentColor;
     }
 
-    .btm-nav>*:not(.active) {
-        padding-top: 0.125rem;
-    }
-
-    .btm-nav>* {
-        position: relative;
-        display: flex;
-        height: 100%;
-        flex-basis: 100%;
-        cursor: pointer;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0.25rem;
-        border-color: currentColor;
-    }
 
 
     .btm-nav>*:where(.active) {
-        border-top-width: 2px;
         --tw-bg-opacity: 1;
         background-color: hsl(var(--b1)/var(--tw-bg-opacity));
     }
 </style>
 
 
-
-<div class="pt-2 pb-2 pr-5 pl-5">
+<div class="pt-2 pb-2 pr-5 pl-5" style="height: 85%;">
 
     <div class="flex ...">
         <div class="h-16 ... mt-3" style="flex: 0.48 0 1%">
-            <i class="fa-regular fa-bell dashboard_icon flex text-lg	  ">
+            <i class="fa-regular fa-bell dashboard_icon flex text-lg">
                 <p class="pl-2 text-lg	" style="font-weight: bold;'">
                     응급발생목록
                 </p>
@@ -190,7 +134,7 @@
             <tr>
                 <th>1</th>
                 <td>독거노인</td>
-                <td><a onclick="openModal('김형민');">김형민</a></td>
+                <td><a onclick="popOpen();">김형민</a></td>
                 <td>서구관제센터</td>
                 <td>둔산1동 수행처</td>
                 <td>119</td>
@@ -237,83 +181,17 @@
                 <td>2023-04-06 11:11</td>
                 <td>처리</td>
             </tr>
-            <tr>
-                <th>6</th>
-                <td>독거노인</td>
-                <td>김형민</td>
-                <td>서구관제센터</td>
-                <td>둔산1동 수행처</td>
-                <td>119</td>
-                <td>2023-04-06 11:11</td>
-                <td>처리</td>
-            </tr>
-            <tr>
-                <th>7</th>
-                <td>독거노인</td>
-                <td>김형민</td>
-                <td>서구관제센터</td>
-                <td>둔산1동 수행처</td>
-                <td>119</td>
-                <td>2023-04-06 11:11</td>
-                <td>처리</td>
-            </tr>
-            <tr>
-                <th>8</th>
-                <td>독거노인</td>
-                <td>김형민</td>
-                <td>서구관제센터</td>
-                <td>둔산1동 수행처</td>
-                <td>119</td>
-                <td>2023-04-06 11:11</td>
-                <td>처리</td>
-            </tr>
-            <tr>
-                <th>9</th>
-                <td>독거노인</td>
-                <td>김형민</td>
-                <td>서구관제센터</td>
-                <td>둔산1동 수행처</td>
-                <td>119</td>
-                <td>2023-04-06 11:11</td>
-                <td>처리</td>
-            </tr>
-            <tr>
-                <th>10</th>
-                <td>독거노인</td>
-                <td>김형민</td>
-                <td>서구관제센터</td>
-                <td>둔산1동 수행처</td>
-                <td>119</td>
-                <td>2023-04-06 11:11</td>
-                <td>처리</td>
-            </tr>
+
 
 
         </tbody>
     </table>
 
 
-
-
-
-
 </div>
 
 
 
-<div class="btm-nav">
-    <a href="chart" class="nav-link">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-        </svg>
-    </a>
-
-    <a href="list" class="nav-link active">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
-        </svg>
-    </a>
-</div>
 
 
 <!-- pagination -->
@@ -324,8 +202,7 @@
     <input type='hidden' name="keyword" value="" />
 </form>
 
-
-<nav aria-label="Navigation">
+<nav aria-label="Navigation" style="height: 15%;">
     <ul class="pagination justify-content-center m-0">
         <li class="page-item ">
             <a href="javascript:list_go(1);" class="page-link">
@@ -356,7 +233,6 @@
         </li>
     </ul>
 </nav>
-<br /><br />
 
 
 
@@ -366,6 +242,19 @@
 
 
 
+<div class="btm-nav bg-gray" style="height: 5%;">
+    <a href="chart" class="nav-link">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+    </a>
+
+    <a href="list" class="nav-link active" style="background-color: #17a2b8;">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
+        </svg>
+    </a>
+</div>
 
 
 
@@ -377,12 +266,54 @@
 
 
 <!-- Modal 창 -->
-<div id="myModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <p id="modalContent"></p>
+<div class="modal_bg" onClick="javascript:popClose();"></div>
+<div class="modal_wrap" style="width:900px; height: 845px;">
+    <div class="modal-content" style="height: 100%;">
+        <div class="modal-header bg-info p-1">
+            <h4 class="modal-title pl-2">ERS</h4>
+            <h4 class="modal-title m-auto modal-title-right">응급관리요원 배정</h4>
+            <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close" onClick="javascript:popClose();">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+
+
+
+		<!--모달 바디-->
+        <div class="modal-body">
+           <div class="row">
+               <div class="col-12">
+                   <div class="row my-2">
+                       <div class="flex justify-center text-xl text-bold" style="width: 45%;">서구 관제센터</div>
+                       <div class="flex justify-center" style="width: 10%;"></div>
+                       <div class="flex justify-center text-xl text-bold" style="width: 45%;">ㅁㅁㅁ동</div>
+                   </div>
+               
+               </div>
+               
+               <div class="row m-0 flex justify-center" style="width: 45%; height:650px;">
+                   나는 왼쪽
+               </div>
+               
+               <div class="row m-0 flex justify-center items-center" style="width: 10%; height:650px;">
+                   <i class='fas fa-arrow-alt-circle-right' onclick="next();" style='font-size:48px;color:#17a2b8;'></i>
+               </div>
+               
+               <div class="row m-0 flex justify-center" style="width: 45%; height:650px;">
+                   나는 오른쪽
+               </div>
+               
+           </div>
+            
+            
+        </div>
+        <!--모달 푸터-->
+        <div class="modal-footer justify-content-end">
+            <button class="px-4 py-2 bg-blue-500 text-sm text-white font-semibold rounded-md border border-blue-500 hover:text-white hover:bg-blue-800 hover:border-transparent focus:outline-none" type="button" data-dismiss="modal" onclick="popClose()">확인</button>
+        </div>
     </div>
 </div>
+
 
 <!--캘린더 현재 날짜-->
 <script>
@@ -390,26 +321,26 @@
 </script>
 
 <script>
-    $(document).ready(function() {
-        window.openModal = function(name) {
-            // 모달 창을 열 때 실행되는 함수
-            // name 매개변수를 사용하여 모달 내용을 동적으로 생성
-            $('#modalContent').html('<h2>' + name + '님에 대한 상세 정보</h2>');
-            // 모달 창 보이기
-            $('#myModal').css('display', 'block');
-        }
+function popOpen() {
+    var modalPop = $('.modal_wrap');
+    var modalBg = $('.modal_bg'); 
 
-        window.closeModal = function() {
-            // 모달 창을 닫을 때 실행되는 함수
-            // 모달 숨기기
-            $('#myModal').css('display', 'none');
-        }
+    $(modalPop).show();
+    $(modalBg).show();
 
-        // 모달 닫기 버튼 클릭 이벤트 처리
-        $('.close').click(function() {
-            closeModal();
-        });
-    });
+}
+
+ function popClose() {
+   var modalPop = $('.modal_wrap');
+   var modalBg = $('.modal_bg');
+
+   $(modalPop).hide();
+   $(modalBg).hide();
+
+}
+ function next(){
+	 alert("온다온다");
+ }
 </script>
 
 
