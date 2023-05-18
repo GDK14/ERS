@@ -6,8 +6,6 @@
 
 
 <style>
-   
-
     /* bottom-nav */
     .relative {
         position: relative;
@@ -50,6 +48,10 @@
     .btm-nav>*:where(.active) {
         --tw-bg-opacity: 1;
         background-color: hsl(var(--b1)/var(--tw-bg-opacity));
+    }
+
+    div>#title {
+        border: none;
     }
 </style>
 
@@ -260,18 +262,13 @@
 
 
 
-
-
-
-
-
 <!-- Modal 창 -->
 <div class="modal_bg" onClick="javascript:popClose();"></div>
 <div class="modal_wrap" style="width:900px; height: 845px;">
     <div class="modal-content" style="height: 100%;">
         <div class="modal-header bg-info p-1">
             <h4 class="modal-title pl-2">ERS</h4>
-            <h4 class="modal-title m-auto modal-title-right">응급관리요원 배정</h4>
+            <h4 class="modal-title m-auto modal-title-right">응급발생 처리</h4>
             <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close" onClick="javascript:popClose();">
                 <span aria-hidden="true">×</span>
             </button>
@@ -279,71 +276,135 @@
 
 
 
-		<!--모달 바디-->
+        <!--모달 바디-->
         <div class="modal-body">
-           <div class="row">
-               <div class="col-12">
-                   <div class="row my-2">
-                       <div class="flex justify-center text-xl text-bold" style="width: 45%;">서구 관제센터</div>
-                       <div class="flex justify-center" style="width: 10%;"></div>
-                       <div class="flex justify-center text-xl text-bold" style="width: 45%;">ㅁㅁㅁ동</div>
-                   </div>
-               
-               </div>
-               
-               <div class="row m-0 flex justify-center" style="width: 45%; height:650px;">
-                   나는 왼쪽
-               </div>
-               
-               <div class="row m-0 flex justify-center items-center" style="width: 10%; height:650px;">
-                   <i class='fas fa-arrow-alt-circle-right' onclick="next();" style='font-size:48px;color:#17a2b8;'></i>
-               </div>
-               
-               <div class="row m-0 flex justify-center" style="width: 45%; height:650px;">
-                   나는 오른쪽
-               </div>
-               
-           </div>
-            
-            
+            <div class="row">
+
+                <div class="row m-0 flex justify-center items-center" style="width: 45%; height:500px;">
+                    <div class="border-gray border-2 items-center " style="width: 100%; height: 400px; ">
+                        <img class="p-1" src="${pageContext.request.contextPath}/resources/images/김형민.png" alt="김형민" style="width: 100%; height: 100%;">
+                    </div>
+                </div>
+
+
+                <div class="row m-0 flex content-start justify-center" style="width: 55%; height:500px;">
+                    <div class="col-12 mt-2" style="height: 60px;">
+                        <div class="row m-0 py-1 px-3">
+                            <div id="title" class="col-4  modal-content-title">접수센터</div>
+                            <div class="col-8 flex justify-center items-cetner px-3 m-0 modal-content-content border-black">
+                                <div class=" ">서구관제센터</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-2" style="height: 60px;">
+                        <div class="row m-0 py-1 px-3">
+                            <div id="title" class="col-4  modal-content-title">구분</div>
+                            <div class="col-8 flex justify-center items-cetner px-3 m-0 modal-content-content border-black">
+                                <div class=" ">독거노인</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-2" style="height: 60px;">
+                        <div class="row m-0 py-1 px-3">
+                            <div id="title" class="col-4  modal-content-title">이름</div>
+                            <div class="col-8 flex justify-center items-cetner px-3 m-0 modal-content-content border-black">
+                                <div class=" ">김형민</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-2" style="height: 60px;">
+                        <div class="row m-0 py-1 px-3">
+                            <div id="title" class="col-4  modal-content-title">사건분류</div>
+                            <div class="col-8 flex justify-center items-cetner px-3 m-0 modal-content-content border-black">
+                                <div class=" ">응급호출</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-2" style="height: 60px;">
+                        <div class="row m-0 py-1 px-3">
+                            <div id="title" class="col-4  modal-content-title">사건발생일시</div>
+                            <div class="col-8 flex justify-center items-cetner px-3 m-0 modal-content-content border-black">
+                                <div class=" ">2023-05-05 14:02</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-2" style="height: 60px;">
+                        <div class="row m-0 py-1 px-3">
+                            <div id="title" class="col-4  modal-content-title">출동지시시간</div>
+                            <div class="col-8 flex justify-center items-cetner px-3 m-0 modal-content-content border-black">
+                                <div class=" ">2023-05-05 15:02</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-2" style="height: 60px;">
+                        <div class="row m-0 py-1 px-3">
+                            <div id="title" class="col-4  modal-content-title">담당수행기관</div>
+                            <div class="col-8 flex justify-center items-cetner px-3 m-0 modal-content-content border-black">
+                                <div class=" ">탄방동 수행기관</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-2" style="height: 60px;">
+                        <div class="row m-0 py-1 px-3">
+                            <div id="title" class="col-4  modal-content-title">담당응급관리요원</div>
+                            <div class="col-8 flex justify-center items-cetner px-3 m-0 modal-content-content border-black">
+                                <div class=" ">박제성</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+                <!--모달 푸터-->
+            </div>
+            <br />
+            <div class="row p-3">
+                <p><i><b>사건내용</b></i></p>
+                <div class="col-12 border-2 h-40" style="overflow-y:scroll;"></div>
+            </div>
+            <div class="flex justify-center">
+                <button class="px-4 py-2 bg-blue-500 text-sm text-white font-semibold rounded-md border border-blue-500 hover:text-white hover:bg-blue-800 hover:border-transparent focus:outline-none" type="button" data-dismiss="modal" onclick="popClose()">확인</button>
+            </div>
         </div>
-        <!--모달 푸터-->
-        <div class="modal-footer justify-content-end">
-            <button class="px-4 py-2 bg-blue-500 text-sm text-white font-semibold rounded-md border border-blue-500 hover:text-white hover:bg-blue-800 hover:border-transparent focus:outline-none" type="button" data-dismiss="modal" onclick="popClose()">확인</button>
-        </div>
-    </div>
-</div>
-
-
-<!--캘린더 현재 날짜-->
-<script>
-    document.getElementById('StartDate').value = new Date().toISOString().substring(0, 10);;
-</script>
-
-<script>
-function popOpen() {
-    var modalPop = $('.modal_wrap');
-    var modalBg = $('.modal_bg'); 
-
-    $(modalPop).show();
-    $(modalBg).show();
-
-}
-
- function popClose() {
-   var modalPop = $('.modal_wrap');
-   var modalBg = $('.modal_bg');
-
-   $(modalPop).hide();
-   $(modalBg).hide();
-
-}
- function next(){
-	 alert("온다온다");
- }
-</script>
 
 
 
 
-<%@ include file="/WEB-INF/views/include/footer.jspf"%>
+
+
+        <!--캘린더 현재 날짜-->
+        <script>
+            document.getElementById('StartDate').value = new Date().toISOString().substring(0, 10);;
+        </script>
+
+        <script>
+            function popOpen() {
+                var modalPop = $('.modal_wrap');
+                var modalBg = $('.modal_bg');
+
+                $(modalPop).show();
+                $(modalBg).show();
+
+            }
+
+            function popClose() {
+                var modalPop = $('.modal_wrap');
+                var modalBg = $('.modal_bg');
+
+                $(modalPop).hide();
+                $(modalBg).hide();
+
+            }
+
+            function next() {
+                alert("온다온다");
+            }
+        </script>
+
+
+
+
+        <%@ include file="/WEB-INF/views/include/footer.jspf"%>
